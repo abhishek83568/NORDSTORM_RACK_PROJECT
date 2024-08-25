@@ -1,42 +1,92 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Navbar CSS */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.navbar-logo img {
+  height: 50px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar-search {
+  flex-grow: 1;
+  margin: 0 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  
+  width: 400px;
+}
+.navbar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
 }
 
-.card {
-  padding: 2em;
+.navbar-icon-text {
+  font-size: 1rem;
+  color: #333;
 }
 
-.read-the-docs {
-  color: #888;
+.navbar-icon {
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar-icon:hover {
+  color: #007bff;
+}
+
+/* search component css */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  width: 500px;
+  border-radius: 10px;
+  height: 2.5rem;
+  padding: 0 15px;
+  margin-left: 50px;
+  box-shadow: 0px 0px 8px #ddd;
+}
+
+.search-input {
+  background-color: transparent;
+border: none;
+  width: 500px;
+  height: 100%;
+  font-size: 1.25rem;
+  margin-left: 5px;
+  outline: none;
+}
+
+.search-input:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.search-icon-cross,
+.search-icon {
+  color: gray;
+  
+  margin-left: 100px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.search-icon-cross:hover,
+.search-icon:hover {
+  color: #ff0000;
 }
