@@ -4,15 +4,23 @@ import { LiaStoreSolid, LiaSignInAltSolid } from "react-icons/lia";
 import { BiSolidPurchaseTagAlt } from "react-icons/bi";
 import Search from "./Search";
 import logo from '../assets/App-logo.webp'
+import { useNavigate } from 'react-router-dom'
 import "../App.css"; 
 
 const Navbar = () => {
+const navigate=useNavigate()
+const handleLogoClick=()=>{
+navigate('/')
+}
+
+
   return (
     <div className="navbar-container">
       <div className="navbar-logo">
         <img
           src={logo}
           alt="App Logo"
+          onClick={handleLogoClick}
         />
       </div>
       <div className="navbar-search">

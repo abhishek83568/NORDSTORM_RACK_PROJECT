@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 15px;
-  
+
   width: 400px;
 }
 .navbar-icon {
@@ -64,7 +64,7 @@
 
 .search-input {
   background-color: transparent;
-border: none;
+  border: none;
   width: 500px;
   height: 100%;
   font-size: 1.25rem;
@@ -80,7 +80,7 @@ border: none;
 .search-icon-cross,
 .search-icon {
   color: gray;
-  
+
   margin-left: 100px;
   cursor: pointer;
   transition: color 0.3s ease;
@@ -90,3 +90,187 @@ border: none;
 .search-icon:hover {
   color: #ff0000;
 }
+
+/* Navlinks  */
+
+.navlinks-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center; /* Center the links horizontally */
+  padding: 10px 0;
+  background-color: #f8f9fa; /* Optional: background color for the links container */
+}
+
+.navlink-item {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #333;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding: 5px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.navlink-item:hover {
+  color: #007bff;
+  border-bottom: 2px solid #007bff; /* Adds an underline effect on hover */
+}
+
+.navlink-item:active {
+  color: #0056b3;
+}
+
+/* Brandslideshow component */
+.container {
+  position: relative;
+ 
+  width: 100%;
+  max-width: 100%;
+  height: 500px;
+  
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.current-image {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hide-current-image {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+.circle-indicator {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.current-indicator {
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.inactive-indicator {
+  background-color: #888888;
+}
+
+.current-indicator:hover,
+.inactive-indicator:hover {
+  background-color: #007bff;
+}
+
+@media (max-width: 600px) {
+  .arrow {
+    font-size: 1.5rem;
+  }
+  .current-indicator {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+
+/* Shopping components */
+
+.top-brands-slider {
+  width: 100%;
+  max-width: 1200px; /* Optional: Maximum width for the slider */
+  margin: 0 auto; /* Center the slider */
+  padding: 20px 0; /* Optional: Padding to add space around the slider */
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.slide-content {
+  position: relative;
+  width: 100%;
+  height: 300px; /* Set a fixed height for the slides */
+  overflow: hidden;
+  border-radius: 10px; /* Optional: Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide-content:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.circular-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the slide without distortion */
+  border-radius: 10px; /* Matches the border-radius of the container */
+}
+
+.slick-prev, 
+.slick-next {
+  font-size: 1.5rem;
+  color: #333;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.slick-prev:hover, 
+.slick-next:hover {
+  color: #000;
+  opacity: 1;
+}
+
+.slick-dots li button:before {
+  font-size: 0.75rem;
+  color: #bbb;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .slide-content {
+    height: 250px; /* Adjust the height for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-content {
+    height: 200px; /* Adjust the height for mobile */
+  }
+}
+
