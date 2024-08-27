@@ -33,9 +33,11 @@ const BrandSlideshow = () => {
         onClick={handlePrevious}
         className="arrow arrow-left"
       />
+      
       {slideshow && slideshow.length
         ? slideshow.map((imageItem, index) => (
-            <img
+            <div key={index}>
+              <img
               key={imageItem.id}
               src={imageItem.src}
               alt={imageItem.id}
@@ -45,8 +47,10 @@ const BrandSlideshow = () => {
                   : "current-image  hide-current-image"
               }
             />
+            </div>
           ))
         : null}
+  
 
       <BsArrowRightCircleFill
         onClick={handleNext}

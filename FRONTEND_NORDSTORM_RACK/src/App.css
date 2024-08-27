@@ -96,9 +96,9 @@
 .navlinks-container {
   display: flex;
   gap: 20px;
-  justify-content: center; /* Center the links horizontally */
+  justify-content: center; 
   padding: 10px 0;
-  background-color: #f8f9fa; /* Optional: background color for the links container */
+  background-color: #f8f9fa; 
 }
 
 .navlink-item {
@@ -112,7 +112,7 @@
 
 .navlink-item:hover {
   color: #007bff;
-  border-bottom: 2px solid #007bff; /* Adds an underline effect on hover */
+  border-bottom: 2px solid #007bff;
 }
 
 .navlink-item:active {
@@ -206,9 +206,9 @@
 
 .top-brands-slider {
   width: 100%;
-  max-width: 1200px; /* Optional: Maximum width for the slider */
-  margin: 0 auto; /* Center the slider */
-  padding: 20px 0; /* Optional: Padding to add space around the slider */
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 20px 0; 
 }
 
 .slide {
@@ -221,22 +221,22 @@
 .slide-content {
   position: relative;
   width: 100%;
-  height: 300px; /* Set a fixed height for the slides */
+  height: 300px; 
   overflow: hidden;
-  border-radius: 10px; /* Optional: Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
   transition: transform 0.3s ease-in-out;
 }
 
 .slide-content:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
+  transform: scale(1.05); 
 }
 
 .circular-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the image covers the slide without distortion */
-  border-radius: 10px; /* Matches the border-radius of the container */
+  object-fit: cover; 
+  border-radius: 10px; 
 }
 
 .slick-prev, 
@@ -264,13 +264,343 @@
 
 @media (max-width: 768px) {
   .slide-content {
-    height: 250px; /* Adjust the height for tablets */
-  }
+    height: 250px; 
 }
 
 @media (max-width: 480px) {
   .slide-content {
-    height: 200px; /* Adjust the height for mobile */
+    height: 200px; 
   }
 }
 
+
+/* Product slide  */
+
+
+.offers-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+.slider-container {
+  position: relative;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.slide {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide:hover {
+  transform: scale(1.05);
+}
+
+/* Product image styling */
+.slide img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Product title styling */
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 15px 0 10px;
+}
+
+/* Product price styling */
+.slide p {
+  font-size: 16px;
+  color: #777;
+  margin: 5px 0;
+}
+
+/* Quick Buy button styling */
+.slide button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slide button:hover {
+  background-color: #e0554e;
+}
+
+/* Arrow styling */
+.slick-prev, .slick-next {
+  width: 30px;
+  height: 30px;
+  z-index: 1;
+}
+
+.slick-prev:before, .slick-next:before {
+  font-size: 30px;
+  color: #333;
+}
+
+/* Dots styling */
+.slick-dots li button:before {
+  font-size: 12px;
+  color: #333;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #ff6f61;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .slide img {
+    max-height: 180px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .slide p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .slide img {
+    max-height: 150px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+
+  .slide p {
+    font-size: 12px;
+  }
+
+  .slide button {
+    padding: 8px 12px;
+  }
+}
+
+
+/* Deals */
+
+.top-brands-slider {
+  width: 100%;
+
+height: 550px;
+  margin: 30px auto;
+  padding: 20px 0;
+  background-color: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.top-brands-slider h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.top-brands-slider button {
+  background-color: #c58b86;
+  color: white;
+  padding: 5px 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.top-brands-slider button:hover {
+  background-color: #ff3b30;
+}
+
+.slide {
+  padding: 15px;
+ 
+  width: 100%;
+  height: 400px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide:hover {
+  transform: scale(1.05);
+}
+
+.slide-content {
+  background-color: white;
+  
+  height: 350px;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.slide:hover .slide-content {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.square-image {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+ 
+  margin-bottom: 15px;
+ 
+  transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.slide:hover .square-image {
+  border-color: #ff3b30;
+  transform: scale(1.05);
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  margin: 10px 0 8px;
+  text-transform: capitalize;
+}
+
+.category {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ff6f61;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.slide-content p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.slick-dots li button:before {
+  font-size: 10px;
+  color: #ff6f61;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 25px;
+  color: #ff6f61;
+}
+
+.slick-prev:hover:before,
+.slick-next:hover:before {
+  color: #ff3b30;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .top-brands-slider {
+    width: 85%;
+  }
+
+  .top-brands-slider h1 {
+    font-size: 1.8rem;
+  }
+
+  .top-brands-slider button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .category {
+    font-size: 0.95rem;
+  }
+
+  .slide-content p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-brands-slider {
+    width: 95%;
+    padding: 15px 0;
+  }
+
+  .square-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .top-brands-slider h1 {
+    font-size: 1.6rem;
+  }
+
+  .top-brands-slider button {
+    font-size: 0.85rem;
+    padding: 7px 14px;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .category {
+    font-size: 0.9rem;
+  }
+
+  .slide-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .square-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .top-brands-slider h1 {
+    font-size: 1.4rem;
+  }
+
+  .top-brands-slider button {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  .title {
+    font-size: 0.9rem;
+  }
+
+  .category {
+    font-size: 0.85rem;
+  }
+
+  .slide-content p {
+    font-size: 0.85rem;
+  }
+}
+}

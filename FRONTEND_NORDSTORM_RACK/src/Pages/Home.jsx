@@ -3,6 +3,10 @@ import TopDeals from '../assets/TopDeals.webp'
 import BrandSlideshow from '../components/BrandSlideshow'
 import FlashOffer from '../assets/FlashOffer.png'
 import Shopping from '../components/Shopping'
+import ProductSlide from '../components/ProductSlide'
+import MultipleBrand from '../assets/MultipleBrand.webp'
+import vinceBrand from '../assets/vinceBrand.webp'
+import Deals from '../components/Deals'
 
 
 
@@ -26,9 +30,17 @@ const Home = () => {
       <hr />
       <div>
         <h1 style={{fontSize:"30px"}}><b>Recommended for You in Great Brands, Great Prices</b></h1>
-         
+         <ProductSlide/>
       </div>
-    
+      <img src={MultipleBrand} alt="MultipleBrands" style={{marginTop:"20px"}} />
+      <img src={vinceBrand} alt="vinceBrand" style={{marginTop:"20px"}} />
+      <hr />
+      <div>
+        
+        <div>
+          <Deals/>
+        </div>
+      </div>
     </div>
   )
 }
