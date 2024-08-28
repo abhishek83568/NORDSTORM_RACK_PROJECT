@@ -113,7 +113,7 @@ const Shopping = () => {
                       <img
                         src={imageItem.src}
                         alt={imageItem.title}
-                        className="circular-image"
+                        className="square-image"
                       />
                     </div>
                       <h4>{imageItem.desc}</h4>

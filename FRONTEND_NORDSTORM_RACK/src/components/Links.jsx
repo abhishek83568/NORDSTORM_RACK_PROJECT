@@ -12,6 +12,7 @@ import Beauty from "../Pages/Beauty";
 import GiftGuide from "../Pages/GiftGuide";
 import FlashEvents from "../Pages/FlashEvents";
 import Navlinks from "./Navlinks";
+import Register from "../Pages/Register";
 
 const Links = () => {
   return (
@@ -30,6 +31,7 @@ const Links = () => {
         <Route path="/beauty" element={<Beauty />} />
         <Route path="/gift" element={<GiftGuide />} />
         <Route path="/flashEvents" element={<FlashEvents />} />
+        <Route path="/register" element={<Register/>}/>
       </Routes>
       
 

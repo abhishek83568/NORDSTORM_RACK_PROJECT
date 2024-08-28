@@ -1,48 +1,79 @@
-import React from 'react'
-import TopDeals from '../assets/TopDeals.webp'
-import BrandSlideshow from '../components/BrandSlideshow'
-import FlashOffer from '../assets/FlashOffer.png'
-import Shopping from '../components/Shopping'
-import ProductSlide from '../components/ProductSlide'
-import MultipleBrand from '../assets/MultipleBrand.webp'
-import vinceBrand from '../assets/vinceBrand.webp'
-import Deals from '../components/Deals'
-
-
+// src/components/Home.js
+import React from "react";
+import TopDeals from "../assets/TopDeals.webp";
+import BrandSlideshow from "../components/BrandSlideshow";
+import FlashOffer from "../assets/FlashOffer.png";
+import Shopping from "../components/Shopping";
+import ProductSlide from "../components/ProductSlide";
+import MultipleBrand from "../assets/MultipleBrand.webp";
+import vinceBrand from "../assets/vinceBrand.webp";
+import Deals from "../components/Deals";
+import VideoSlideshow from "../components/VideoSlideshow";
+import Trending from "../components/Trending";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
-    <div style={{margin:"30px"}}>
-      <h1>Welcome to HomePage</h1>
-      <hr />
-      <img src={TopDeals} alt="TopDeals" style={{marginBottom:"10px"}} />
-      <hr />
-      <BrandSlideshow/>
+    <div className="home-container">
+      <h1 className="home-heading">Welcome to HomePage</h1>
+      <hr className="home-divider" />
 
-      <hr />
+      <img src={TopDeals} alt="Top Deals" className="home-image" />
+      <hr className="home-divider" />
 
-      <img src={FlashOffer} alt="TopDeals" style={{marginTop:"20px"}} />
-
-      <hr />
-
-      <Shopping/>
-
-      <hr />
-      <div>
-        <h1 style={{fontSize:"30px"}}><b>Recommended for You in Great Brands, Great Prices</b></h1>
-         <ProductSlide/>
+      <div className="component-container">
+        <BrandSlideshow />
       </div>
-      <img src={MultipleBrand} alt="MultipleBrands" style={{marginTop:"20px"}} />
-      <img src={vinceBrand} alt="vinceBrand" style={{marginTop:"20px"}} />
-      <hr />
-      <div>
-        
-        <div>
-          <Deals/>
+
+      <hr className="home-divider" />
+
+      <img src={FlashOffer} alt="Flash Offer" className="home-image" />
+      <hr className="home-divider" />
+
+      <div className="component-container">
+        <Shopping />
+      </div>
+
+      <hr className="home-divider" />
+
+      <div className="home-section">
+        <h1 className="section-title">
+          Recommended for You in Great Brands, Great Prices
+        </h1>
+        <div className="component-container">
+          <ProductSlide />
         </div>
       </div>
-    </div>
-  )
-}
 
-export default Home
+      <img src={MultipleBrand} alt="Multiple Brands" className="home-image" />
+      <img src={vinceBrand} alt="Vince Brand" className="home-image" />
+
+      <hr className="home-divider" />
+
+      <div className="component-container">
+        <Deals />
+      </div>
+
+      <div className="home-section">
+        <h1 className="section-title">
+          Score! See something you love? Click the photo to shop our Instagram.
+          Plus, tag us @nordstromrack to share your finds.
+        </h1>
+        <div className="component-container">
+          <VideoSlideshow />
+        </div>
+      </div>
+
+      <div className="trending-section">
+        <h1 className="section-title">TRENDING NOW</h1>
+        <div className="component-container">
+          <Trending />
+        </div>
+      </div>
+
+      <Footer/>
+    </div>
+  );
+};
+
+export default Home;
