@@ -28,7 +28,7 @@ userRouter.post("/register", async (req, res) => {
         await newUser.save();
         res
           .status(201)
-          .json({ message: "User registered successfully", newUser });
+          .json({ message: "User registered successfully" });
       } else {
         res.status(403).send(`Error while hashing ${err}`);
       }
