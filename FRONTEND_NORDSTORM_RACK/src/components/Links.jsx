@@ -13,6 +13,8 @@ import GiftGuide from "../Pages/GiftGuide";
 import FlashEvents from "../Pages/FlashEvents";
 import Navlinks from "./Navlinks";
 import Register from "../Pages/Register";
+import PrivateRoute from "../BrowserRouter/PrivateRoute";
+import Cart from "../Pages/Cart";
 
 const Links = () => {
   return (
@@ -22,7 +24,7 @@ const Links = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/new" element={<New />} />
-        <Route path="/clearance" element={<Clearance />} />
+        <Route path="/clearance/:id" element={<PrivateRoute><Clearance /></PrivateRoute>} />
         <Route path="/women" element={<Women />} />
         <Route path="/Men" element={<Men />} />
         <Route path="/kid" element={<Kids />} />
@@ -32,6 +34,7 @@ const Links = () => {
         <Route path="/gift" element={<GiftGuide />} />
         <Route path="/flashEvents" element={<FlashEvents />} />
         <Route path="/register" element={<Register/>}/>
+        <Route path="/cart" element={<PrivateRoute><Cart/></PrivateRoute>}/>
       </Routes>
       
 

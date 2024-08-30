@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 
 const Register = () => {
@@ -81,6 +81,7 @@ const Register = () => {
           required
         />
         <button type="submit">Register</button>
+      <h1 className="Signin">Already have an account ?  <Link to={'/'} style={{color:"blue"}}>Sign In </Link> </h1>
       </form>
       </div>
       

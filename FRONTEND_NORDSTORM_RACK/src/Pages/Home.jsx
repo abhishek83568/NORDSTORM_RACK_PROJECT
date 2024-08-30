@@ -11,11 +11,15 @@ import Deals from "../components/Deals";
 import VideoSlideshow from "../components/VideoSlideshow";
 import Trending from "../components/Trending";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+const navigate=useNavigate()
+  
   return (
     <div className="home-container">
-      <h1 className="home-heading">Welcome to HomePage</h1>
+      <h1 className="home-heading">More to Rack , easier and faster.</h1>
+      <button onClick={()=>navigate('/register')} className="signin-button" >Sign In or create account</button>
       <hr className="home-divider" />
 
       <img src={TopDeals} alt="Top Deals" className="home-image" />

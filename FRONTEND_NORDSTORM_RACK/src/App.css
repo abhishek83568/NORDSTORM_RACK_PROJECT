@@ -178,7 +178,14 @@
   font-weight: bold;
   color: #333;
 }
+.signin-button{
+  display: flex;
 
+  margin: auto;
+  border: 1px solid blue;
+  padding: 5px;
+
+}
 .home-image {
   width: 100%;
   margin: 20px 0;
@@ -447,7 +454,7 @@ h4 {
 .slide button {
   margin-top: 10px;
   padding: 10px 15px;
-  background-color: #ff6f61;
+  background-color: #3c3049;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -761,6 +768,9 @@ h4 {
 .register-form button:hover {
   background-color: #0056b3;
 }
+.Signin{
+  margin: auto;
+}
 
 /* Responsive form adjustments */
 @media (max-width: 480px) {
@@ -816,6 +826,62 @@ h4 {
   margin-top: 10px;
   text-align: center;
 }
+
+
+/* Clearance Page*/
+
+/* Clearance.css */
+.singlePage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.singlePage-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.singlePage-container h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px 0;
+  text-align: center;
+  color: #333;
+}
+
+.singlePage-container h2 {
+  font-size: 20px;
+  color: #e60023;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.singlePage-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.singlePage-container button:hover {
+  background-color: #0056b3;
+}
+
 
 
 /* Footer */

@@ -3,8 +3,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../App.css'
+import { useNavigate } from "react-router-dom";
 
 const ProductSlide = () => {
+  const navigate=useNavigate()
   const [product, setProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(null);
@@ -101,7 +103,7 @@ fetchProduct()
               <p className="title">{item.title}</p>
               <p> {` $ ${item.price}`}</p>
               <p> {item.category}</p>
-              
+              <button onClick={()=>navigate(`/clearance/${item._id}`)}>Quick view</button>
             </div>
           ))}
         </Slider>

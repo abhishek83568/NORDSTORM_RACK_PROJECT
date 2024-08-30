@@ -3,7 +3,7 @@ export const Navlink=[{
     title:"New"
 },
 {
-    to:"/clearance",
+    to:"/clearance/:id",
     title:"Clearance"
 },
 {
