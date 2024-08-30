@@ -32,5 +32,18 @@ productRouter.get('/get-products',async(req,res)=>{
     }
 })
 
+productRouter.get('/get-product/:id',async(req,res)=>{
+    try {
+        const {id}=req.params;
+        const product=await ProductModel.findById(id);
+        res.status(200).json({
+            message:"Single product fetched",product
+        })
+
+    } catch (error) {
+        res.status(404).send(`Error while fetching product with Id ${error}`)
+    }
+})
+
 
 module.exports=productRouter
