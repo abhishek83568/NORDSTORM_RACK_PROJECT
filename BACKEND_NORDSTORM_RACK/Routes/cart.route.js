@@ -54,7 +54,8 @@ try {
     }
 
     if(product.userId.toString()===userId.toString()){
-        const updatedProduct=await CartModel.findByIdAndUpdate(product._id,payload)
+         const updatedProduct=await CartModel.findByIdAndUpdate(product._id,payload)
+        // const updatedProduct=await CartModel.findByIdAndUpdate(productId,payload)
         res.status(202).json({
             message:"Cartdata Updated successfully",updatedProduct
         })
@@ -63,6 +64,42 @@ try {
 } catch (error) {
     res.status(404).send(`Error while updating cartProduct ${error}`)
 }
+})
+
+cartRouter.delete('/delete-cartProduct/:id',async(req,res)=>{
+    try {
+        const productId=req.params.id;
+        const userId=req.user._id;
+        
+    
+        // const product=await CartModel.findOne({productId,userId});
+        const product = await CartModel.findOne({ _id: productId, userId });
+        if(!product){
+            return res.status(404).send(`Product not found`);
+    
+        }
+    
+        // if(product.userId.toString()===userId.toString()){
+        //      const deletedProduct=await CartModel.findByIdAndDelete(product._id)
+           
+        //     res.status(202).json({
+        //         message:"Cartdata deleted successfully",deletedProduct
+        //     })
+        // }
+
+        if (product.userId.toString() === userId.toString()) {
+            const deletedProduct = await CartModel.findByIdAndDelete(product._id);
+            res.status(202).json({
+              message: "Cartdata deleted successfully",
+              deletedProduct,
+            });
+          } else {
+            res.status(403).send("Unauthorized to delete this product.");
+          }
+    
+    } catch (error) {
+        res.status(404).send(`Error while deleting cartProduct ${error}`)
+    }
 })
 
 
