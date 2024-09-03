@@ -6,9 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import '../App.css';
 
 const Search = () => {
-  const [search, setSearch] = useState("");
+  //const [search, setSearch] = useState("");
  // const navigate = useNavigate();
-
+  
   const handleSearch = (e) => {
     // setSearch(e.target.value);
     // if (search.trim() !== "") {

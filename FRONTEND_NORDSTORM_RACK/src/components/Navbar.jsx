@@ -94,7 +94,7 @@ const Navbar = () => {
           <BiSolidPurchaseTagAlt />
           <span className="navbar-icon-text">Purchases</span>
         </div>
-        <div className="navbar-icon">
+        <div className="navbar-icon" onClick={()=>navigate('/cart')}>
           <FaShoppingCart />
           <span className="navbar-icon-text">Cart</span>
         </div>
