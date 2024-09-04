@@ -15,7 +15,7 @@ const Clearance = () => {
         return;
       }
       const response = await fetch(
-        `http://localhost:7346/product/get-product/${id}`
+        `https://nordstorm-rack-project.onrender.com/product/get-product/${id}`
       );
       const data = await response.json();
       if (data) {
@@ -29,7 +29,7 @@ const Clearance = () => {
   const addToCart = async () => {
     try {
       const cartResponse = await fetch(
-        `http://localhost:7346/cart/user-cartData`,
+        `https://nordstorm-rack-project.onrender.com/cart/user-cartData`,
         {
           method: "GET",
           headers: {
@@ -40,9 +40,9 @@ const Clearance = () => {
       );
 
       const cartData = await cartResponse.json();
-      console.log("Fetched cart data:", cartData.cartData); // Debugging line
+      console.log("Fetched cart data:", cartData.cartData); 
 
-      // Checking if cartData is an array
+    
       if (!Array.isArray(cartData.cartData)) {
         console.error("cartData is not an array:", cartData);
         return;
@@ -60,7 +60,7 @@ const Clearance = () => {
         };
 
         await fetch(
-          `http://localhost:7346/cart/update-cartProduct/${existingProduct.productId}`,
+          `https://nordstorm-rack-project.onrender.com/cart/update-cartProduct/${existingProduct.productId}`,
           {
             method: "PATCH",
             headers: {
@@ -72,17 +72,20 @@ const Clearance = () => {
         );
         navigate("/cart");
       } else {
-        await fetch(`http://localhost:7346/cart/add-to-cart`, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({
-            ...singleProduct,
-            productId: singleProduct._id,
-          }),
-        });
+        await fetch(
+          `https://nordstorm-rack-project.onrender.com/cart/add-to-cart`,
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+              ...singleProduct,
+              productId: singleProduct._id,
+            }),
+          }
+        );
 
         navigate("/cart");
       }

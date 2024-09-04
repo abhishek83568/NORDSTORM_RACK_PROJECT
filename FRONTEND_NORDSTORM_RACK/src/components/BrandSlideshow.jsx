@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Brands from "../assets/Brands.gif";
 import Brand2 from "../assets/Brand2.webp";
 import Brand3 from "../assets/Brand3.webp";
@@ -20,11 +20,15 @@ const BrandSlideshow = () => {
   ];
 
   const handlePrevious = () => {
-    setCurrentSlide(currentSlide === 0 ? slideshow.length - 1 : currentSlide - 1);
+    setCurrentSlide(
+      currentSlide === 0 ? slideshow.length - 1 : currentSlide - 1
+    );
   };
 
   const handleNext = () => {
-    setCurrentSlide(currentSlide === slideshow.length - 1 ? 0 : currentSlide + 1);
+    setCurrentSlide(
+      currentSlide === slideshow.length - 1 ? 0 : currentSlide + 1
+    );
   };
 
   return (
@@ -33,24 +37,23 @@ const BrandSlideshow = () => {
         onClick={handlePrevious}
         className="arrow arrow-left"
       />
-      
+
       {slideshow && slideshow.length
         ? slideshow.map((imageItem, index) => (
             <div key={index}>
               <img
-              key={imageItem.id}
-              src={imageItem.src}
-              alt={imageItem.id}
-              className={
-                currentSlide === index
-                  ? "current-image"
-                  : "current-image  hide-current-image"
-              }
-            />
+                key={imageItem.id}
+                src={imageItem.src}
+                alt={imageItem.id}
+                className={
+                  currentSlide === index
+                    ? "current-image"
+                    : "current-image  hide-current-image"
+                }
+              />
             </div>
           ))
         : null}
-  
 
       <BsArrowRightCircleFill
         onClick={handleNext}

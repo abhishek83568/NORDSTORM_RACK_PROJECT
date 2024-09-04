@@ -1,6 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaShoppingCart } from "react-icons/fa";
-import { LiaStoreSolid, LiaSignInAltSolid } from "react-icons/lia";
+import {
+  LiaStoreSolid,
+  LiaSignInAltSolid,
+  LiaSignOutAltSolid,
+} from "react-icons/lia";
 import { BiSolidPurchaseTagAlt } from "react-icons/bi";
 import Search from "./Search";
 import logo from "../assets/App-logo.webp";
@@ -30,18 +34,23 @@ const Navbar = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:7346/user/login`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(login),
-      });
+      const response = await fetch(
+        `https://nordstorm-rack-project.onrender.com/user/login`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(login),
+        }
+      );
 
       const loginUser = await response.json();
+
       if (response.ok) {
         localStorage.setItem("token", loginUser.token);
-       setUserDetails(login.email)
+        localStorage.setItem("firstName", loginUser.existingUser.firstname);
+        setUserDetails(loginUser.existingUser.firstname);
         setIsLoggedIn(true);
         setIsDropdownOpen(false);
         setIsError(null);
@@ -57,12 +66,21 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    
+    localStorage.removeItem("firstName");
     setIsLoggedIn(false);
     setUserDetails(null);
-    navigate('/')
+    navigate("/");
   };
 
+  useEffect(() => {
+   
+    const token = localStorage.getItem("token");
+    const storedUserDetails = localStorage.getItem("firstName");
+    if (token && storedUserDetails) {
+      setIsLoggedIn(true);
+      setUserDetails(storedUserDetails);
+    }
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -76,7 +94,7 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-   
+  console.log(isLoggedIn);
   return (
     <div className="navbar-container">
       <div className="navbar-logo">
@@ -94,20 +112,18 @@ const Navbar = () => {
           <BiSolidPurchaseTagAlt />
           <span className="navbar-icon-text">Purchases</span>
         </div>
-        <div className="navbar-icon" onClick={()=>navigate('/cart')}>
+        <div className="navbar-icon" onClick={() => navigate("/cart")}>
           <FaShoppingCart />
           <span className="navbar-icon-text">Cart</span>
         </div>
         <div className="navbar-icon" onClick={handleToggleDropdown}>
           {isLoggedIn ? (
-            <div>
-              <span>Welcome  {userDetails}</span>
-              <button className="logout-button" onClick={handleLogout}>
-                Logout
-              </button>
+            <div className="navbar-icon" onClick={handleLogout}>
+              <LiaSignOutAltSolid />
+              <span className="navbar-icon-text">Logout</span>
             </div>
           ) : (
-            <div>
+            <div className="navbar-icon">
               <LiaSignInAltSolid />
               <span className="navbar-icon-text">Sign In</span>
             </div>
@@ -144,7 +160,11 @@ const Navbar = () => {
           </form>
           <h3>
             New to Nordstrom Rack?{" "}
-            <Link to={"/register"} onClick={handleToggleDropdown} style={{color:"blue"}}>
+            <Link
+              to={"/register"}
+              onClick={handleToggleDropdown}
+              style={{ color: "blue" }}
+            >
               Register Now
             </Link>
           </h3>

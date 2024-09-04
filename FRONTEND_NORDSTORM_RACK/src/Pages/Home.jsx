@@ -1,25 +1,53 @@
-// src/components/Home.js
-import React from "react";
 import TopDeals from "../assets/TopDeals.webp";
 import BrandSlideshow from "../components/BrandSlideshow";
 import FlashOffer from "../assets/FlashOffer.png";
 import Shopping from "../components/Shopping";
 import ProductSlide from "../components/ProductSlide";
 import MultipleBrand from "../assets/MultipleBrand.webp";
-import vinceBrand from "../assets/vinceBrand.webp";
+import vinceBrand from "../assets/VinceBrand.webp";
 import Deals from "../components/Deals";
 import VideoSlideshow from "../components/VideoSlideshow";
 import Trending from "../components/Trending";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Home = () => {
-const navigate=useNavigate()
-  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const navigate = useNavigate();
+
+  const checkLoginStatus = () => {
+    const token = localStorage.getItem("token");
+    const firstName = localStorage.getItem("firstName");
+    setIsLoggedIn(!!token);
+    setFirstName(firstName);
+  };
+
+  useEffect(() => {
+    checkLoginStatus();
+
+    const interval = setInterval(checkLoginStatus, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleLogin = () => {
+    navigate("/register");
+  };
+
   return (
     <div className="home-container">
-      <h1 className="home-heading">More to Rack , easier and faster.</h1>
-      <button onClick={()=>navigate('/register')} className="signin-button" >Sign In or create account</button>
+      <h1 className="home-heading">More to Rack, easier and faster.</h1>
+      {!isLoggedIn ? (
+        <button onClick={handleLogin} className="signin-button">
+          Sign In or create account
+        </button>
+      ) : (
+        <div>
+          <h1>{`Welcome ${firstName}`}</h1>
+        </div>
+      )}
       <hr className="home-divider" />
 
       <img src={TopDeals} alt="Top Deals" className="home-image" />
@@ -75,7 +103,7 @@ const navigate=useNavigate()
         </div>
       </div>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 };

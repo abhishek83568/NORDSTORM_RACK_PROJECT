@@ -1,5 +1,3 @@
-
-import React from "react";
 import Slider from "react-slick";
 import VideoPlayer from "../components/VideoPlayer";
 import "slick-carousel/slick/slick.css";
@@ -10,43 +8,58 @@ const VideoSlideshow = () => {
     {
       id: 1,
       videoUrl: `https://cdn.dashhudson.com/media/full/1694042655.438735257278.mp4`,
-    
     },
     {
       id: 2,
       videoUrl: `https://cdn.dashhudson.com/media/full/1656647074.062464536274.mp4`,
-     
     },
     {
       id: 3,
       videoUrl: `https://cdn.dashhudson.com/media/full/1706134383.915505438559.mp4`,
-    
     },
     {
       id: 4,
       videoUrl: `https://cdn.dashhudson.com/media/full/1708123697.04083216446.mp4`,
-      
     },
     {
       id: 5,
       videoUrl: `https://cdn.dashhudson.com/media/full/1694042566.350712868480.mp4`,
-      
     },
     {
       id: 6,
       videoUrl: `https://cdn.dashhudson.com/media/full/1645552568.283103792945.mp4`,
-      
     },
   ];
+
+  const Arrow = (props) => {
+    
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{
+          ...style,
+          display: "block",
+          background: "gray",
+          borderRadius: "25px",
+          padding: "1px",
+        }}
+        onClick={onClick}
+      />
+    );
+  };
 
   const settings = {
     dots: true,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
+    centerMode: true,
+    nextArrow: <Arrow />,
+    prevArrow: <Arrow />,
     autoplay: true,
     speed: 3000,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
     cssEase: "linear",
     responsive: [
       {
@@ -111,9 +124,7 @@ const VideoSlideshow = () => {
                 border: "none",
                 borderRadius: "4px",
               }}
-            >
-             
-            </button>
+            ></button>
           </div>
         ))}
       </Slider>
@@ -122,4 +133,3 @@ const VideoSlideshow = () => {
 };
 
 export default VideoSlideshow;
-
