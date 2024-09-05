@@ -94,7 +94,7 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  console.log(isLoggedIn);
+  
   return (
     <div className="navbar-container">
       <div className="navbar-logo">

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import '../App.css'
 
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
   const token = localStorage.getItem("token");
+  const navigate=useNavigate()
 
   const fetchCartData = async () => {
     const response = await fetch(
@@ -146,6 +148,7 @@ const Cart = () => {
       {cartData.length > 0 && (
         <div >
           <h2 className="cart-total">Total: {calculateTotal()}</h2>
+         <button className="Checkout" onClick={()=>{navigate('/checkout')}}>Checkout</button>
         </div>
       )}
     </div>

@@ -45,7 +45,7 @@ const Home = () => {
         </button>
       ) : (
         <div>
-          <h1>{`Welcome ${firstName}`}</h1>
+          <h1 style={{fontWeight:'bolder',  fontSize:'20px', color:"teal"}}>{`Welcome ${firstName}`}</h1>
         </div>
       )}
       <hr className="home-divider" />

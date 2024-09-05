@@ -5,7 +5,7 @@ import Brand3 from "../assets/Brand3.webp";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 
 const BrandSlideshow = () => {
-  const [currentSlide, setCurrentSlide] = useState(1);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const slideshow = [
     {

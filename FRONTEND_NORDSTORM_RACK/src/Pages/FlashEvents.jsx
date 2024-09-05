@@ -18,12 +18,12 @@ const FlashEvents = () => {
   useEffect(() => {
     fetchDeals();
   }, []);
-  console.log(deals);
+ 
   return (
     <div>
-      <div className="deals-container">
+      <div className="flash-container">
         {deals.map((product, index) => (
-          <div key={index} className="deals-item">
+          <div key={index} className="flash-item">
             <img src={product.image} alt={product.title} />
             <h2>{product.title}</h2>
             <p>{product.price}</p>

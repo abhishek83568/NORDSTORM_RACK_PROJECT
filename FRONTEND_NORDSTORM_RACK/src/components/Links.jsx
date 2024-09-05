@@ -16,6 +16,7 @@ import Register from "../Pages/Register";
 import PrivateRoute from "../BrowserRouter/PrivateRoute";
 import Cart from "../Pages/Cart";
 import SearchProducts from "../Pages/SearchProducts";
+import Checkout from "../Pages/Checkout";
 
 const Links = () => {
   return (
@@ -43,6 +44,7 @@ const Links = () => {
         <Route path="/flashEvents" element={<FlashEvents />} />
         <Route path="/register" element={<Register />} />
         <Route path="/search" element={<SearchProducts />} />
+        <Route path="/checkout" element={<Checkout/>} />
         <Route
           path="/cart"
           element={

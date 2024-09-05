@@ -25,7 +25,7 @@ const Clearance = () => {
       setIsError(error.message);
     }
   };
-  console.log(singleProduct);
+
   const addToCart = async () => {
     try {
       const cartResponse = await fetch(
@@ -40,8 +40,7 @@ const Clearance = () => {
       );
 
       const cartData = await cartResponse.json();
-      console.log("Fetched cart data:", cartData.cartData); 
-
+      
     
       if (!Array.isArray(cartData.cartData)) {
         console.error("cartData is not an array:", cartData);
@@ -52,7 +51,6 @@ const Clearance = () => {
         (item) => item.productId === singleProduct._id
       );
 
-      console.log(existingProduct);
       if (existingProduct) {
         const updatedProduct = {
           ...existingProduct,

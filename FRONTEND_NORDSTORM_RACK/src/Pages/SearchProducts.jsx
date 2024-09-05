@@ -51,23 +51,11 @@ const SearchProducts = () => {
     return () => window.removeEventListener("scroll", handleInfiniteScroll);
   }, []);
 
-  const handleInputChange = (e) => {
-    const newQuery = e.target.value;
-    setQuery(newQuery);
-    navigate(`?query=${encodeURIComponent(newQuery)}`);
-  };
+  
 
   return (
     <div className="product-grid">
-      <h1>Search Results for "{query}"</h1>
-      <input
-        type="text"
-        value={query}
-        onChange={handleInputChange}
-        placeholder="Search products..."
-        className="search-input"
-      />
-
+     
       <div className="grid-container">
         {filteredProducts.map((product, index) => (
           <div key={index} className="product-item">
