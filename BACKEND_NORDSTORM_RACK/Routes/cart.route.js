@@ -96,4 +96,15 @@ cartRouter.delete("/delete-cartProduct/:id", Auth, async (req, res) => {
   }
 });
 
+cartRouter.delete('/cartData-deleteAll',Auth,async(req,res)=>{
+  try {
+    const userId = req.user._id;
+    await CartModel.deleteMany({userId})
+    res.status(200).json({ message: "Cart cleared successfully." });
+    
+  } catch (error) {
+    res.status(404).json({ message: "error while Cart clearing." });
+  }
+})
+
 module.exports = cartRouter;
