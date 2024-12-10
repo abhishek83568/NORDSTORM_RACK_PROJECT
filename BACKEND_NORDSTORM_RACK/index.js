@@ -6,6 +6,7 @@ const userRouter = require('./Routes/user.routes');
 const productRouter = require('./Routes/product.routes');
 const dealsRouter = require('./Routes/deals.route');
 const cartRouter = require('./Routes/cart.route');
+const paymentRouter = require('./Routes/payment.route');
 
 const app=express();
 app.use(cors({
@@ -19,6 +20,7 @@ app.use('/user',userRouter)
 app.use('/product',productRouter)
 app.use('/deals',dealsRouter)
 app.use('/cart',cartRouter)
+app.use('/payment',paymentRouter)
 
 app.get('/',(req,res)=>{
 try {
