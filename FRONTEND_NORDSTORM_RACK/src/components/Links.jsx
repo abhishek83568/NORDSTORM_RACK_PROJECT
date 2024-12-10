@@ -17,6 +17,7 @@ import PrivateRoute from "../BrowserRouter/PrivateRoute";
 import Cart from "../Pages/Cart";
 import SearchProducts from "../Pages/SearchProducts";
 import Checkout from "../Pages/Checkout";
+import ProductDetails from "../components/productDetails";
 
 const Links = () => {
   return (
@@ -35,7 +36,7 @@ const Links = () => {
           }
         />
         <Route path="/women" element={<Women />} />
-        <Route path="/Men" element={<Men />} />
+        <Route path="/men" element={<Men />} />
         <Route path="/kid" element={<Kids />} />
         <Route path="/shoe" element={<Shoes />} />
         <Route path="/bagaccessories" element={<BagAccessories />} />
@@ -44,7 +45,7 @@ const Links = () => {
         <Route path="/flashEvents" element={<FlashEvents />} />
         <Route path="/register" element={<Register />} />
         <Route path="/search" element={<SearchProducts />} />
-        <Route path="/checkout" element={<Checkout/>} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route
           path="/cart"
           element={
@@ -53,6 +54,8 @@ const Links = () => {
             </PrivateRoute>
           }
         />
+        {/* Added Route for Product Details */}
+        <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
     </div>
   );
