@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import "../App.css";
 
 const New = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [sortOption, setSortOption] = useState("priceLowToHigh");
   const [categoryFilter, setCategoryFilter] = useState("");
   const [subCategoryFilter, setSubCategoryFilter] = useState("");
-  const navigate = useNavigate();
-
+  const token = localStorage.getItem("token");
   // Fetch products from the API
   useEffect(() => {
     const fetchProducts = async () => {
@@ -41,36 +40,74 @@ const New = () => {
 
     fetchProducts();
   }, []);
+  console.log(products);
 
-  const handleProductClick = (productId) => {
-    navigate(`/product/${productId}`);
-  };
-
-  const addToCart = async (product) => {
-    try {
-      const token = localStorage.getItem("token");
-
-      const cartResponse = await axios.post(
-        "https://nordstorm-rack-project.onrender.com/cart/user-cartData",
-        {
-          user: "userId",
-          product: product._id,
-          quantity: 1,
-          price: product.price,
+  // Add product to cart
+const addToCart = async (selectedProduct) => {
+  try {
+    const cartResponse = await fetch(
+      `https://nordstorm-rack-project.onrender.com/cart/user-cartData`,
+      {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
+      }
+    );
+
+    const cartData = await cartResponse.json();
+
+    if (!Array.isArray(cartData.cartData)) {
+      console.error("cartData is not an array:", cartData);
+      return;
+    }
+
+    const existingProduct = cartData.cartData.find(
+      (item) => item.productId === selectedProduct._id
+    );
+
+    if (existingProduct) {
+      const updatedProduct = {
+        ...existingProduct,
+        quantity: existingProduct.quantity + 1,
+      };
+
+      await fetch(
+        `https://nordstorm-rack-project.onrender.com/cart/update-cartProduct/${existingProduct.productId}`,
         {
+          method: "PATCH",
           headers: {
-            "Content-Type": "application/json",
+            "content-type": "application/json",
             Authorization: `Bearer ${token}`,
           },
+          body: JSON.stringify(updatedProduct),
         }
       );
-
-      console.log(cartResponse.data.message);
-    } catch (error) {
-      console.error("Error adding item to cart:", error);
+    } else {
+      await fetch(
+        `https://nordstorm-rack-project.onrender.com/cart/add-to-cart`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            ...selectedProduct,
+            productId: selectedProduct._id,
+          }),
+        }
+      );
     }
-  };
+
+    navigate("/cart");
+  } catch (error) {
+    console.log(`Error adding to cart: ${error}`);
+  }
+};
+
+ 
 
   // Handle Sorting
   const handleSortChange = (e) => {
@@ -157,7 +194,6 @@ const New = () => {
             <div
               key={product._id}
               className="product-card"
-              onClick={() => handleProductClick(product._id)}
             >
               <img src={product.image} alt={product.title} />
               <h2>{product.title}</h2>
@@ -166,14 +202,9 @@ const New = () => {
               <p>Sub-Category: {product.subCategory}</p>
 
               <div className="product-actions">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    addToCart(product);
-                  }}
-                >
-                  Add to Cart
-                </button>
+              <button onClick={() => addToCart(product)}>Add to Cart</button>
+              <button onClick={()=> navigate(`/product/${product._id}`)}>View Product</button>
+        
               </div>
             </div>
           ))
