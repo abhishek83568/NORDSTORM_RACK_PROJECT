@@ -21,8 +21,9 @@ const New = () => {
 
         if (response.ok) {
           const data = await response.json();
-          if (data && Array.isArray(data.product)) {
-            setProducts(data.product);
+          
+          if (data && Array.isArray(data.products)) {
+            setProducts(data.products);
           } else {
             setError("Unexpected response structure");
             console.error("Products not found in response:", data);
@@ -40,7 +41,7 @@ const New = () => {
 
     fetchProducts();
   }, []);
-  console.log(products);
+  
 
   // Add product to cart
 const addToCart = async (selectedProduct) => {

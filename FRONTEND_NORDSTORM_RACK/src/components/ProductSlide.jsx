@@ -19,9 +19,8 @@ const ProductSlide = () => {
       setIsLoading(true);
       const response = await fetch(url);
       const data = await response.json();
-
       if (data) {
-        setProduct(data.product);
+        setProduct(data.products);
         setIsLoading(false);
       }
     } catch (error) {
