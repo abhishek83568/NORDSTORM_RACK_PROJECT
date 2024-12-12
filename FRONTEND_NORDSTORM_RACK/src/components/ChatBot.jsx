@@ -59,7 +59,7 @@ const ChatBot = () => {
       try {
         const response = await axios({
           method: "post",
-          url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${import.meta.env.REACT_APP_API_KEY}`,
+          url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyBX4dIyhAFjsFBO-B7M6Y4PerjytXt_XXU`,
           headers: { "Content-Type": "application/json" },
           data: {
             contents: [
@@ -75,15 +75,15 @@ const ChatBot = () => {
         });
 
         const botReply =
-          response.data.contents?.[0]?.parts?.[0]?.text ||
-          `I'm sorry, I couldn't understand your question. Please contact support for further assistance.`;
+          response.data.contents?.[0]?.parts?.[0]?.text ;
 
         setTimeout(() => {
           setIsTyping(false);
           setMessages((prevMessages) => [
             ...prevMessages,
             { text: botReply, sender: "bot" },
-            { text: "If you need further assistance, please continue.", sender: "bot" },
+            { text: "If you need further assistance.", sender: "bot" },
+            { text: `Please contact support.`, sender: "bot", support: true }
           ]);
         }, 1000);
       } catch (error) {
