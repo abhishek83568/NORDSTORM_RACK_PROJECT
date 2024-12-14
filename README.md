@@ -40,13 +40,13 @@
 ---
 - **Home Page**
 ---
-![Nordstorm](./assets/home.png)
+![Nordstorm](./Readme_Photos/Homepage.png)
 
 ![1 2](./assets/home2.png)
 ---
 - **Register page**
 ---
-![sign](./assets/SignIn.png)
+![sign](./Readme_Photos/RegisterPage.png)
 ---
 
 
@@ -55,12 +55,12 @@
 - **Log In page**
 
 ---
-![Login](./assets/login.png)
+![Login](./Readme_Photos/Login.png)
 
 ---
 - **Product Page**
 ---
-![product](./assets/Products.png)
+![product](./Readme_Photos/Productpage.png)
 
 
 ---
